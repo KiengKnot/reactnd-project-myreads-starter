@@ -35,7 +35,7 @@ class BookApp extends React.Component {
                 //console.log
                 //this.changeUpdateShelfResponse(response)
                 this.setState((prev) => ({
-                    books: [...prev.books, { ...book, shelf: shelfId }]
+                    books: [...prev.books.filter(b => b.id !== book.id), { ...book, shelf: shelfId }]
                 }))
             })
     }
