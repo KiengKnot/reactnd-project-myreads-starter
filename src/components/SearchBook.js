@@ -17,18 +17,24 @@ class SearchBook extends React.Component {
 
 
     handleOnSearch = (search, isDelayed) => {
-        if (isDelayed) {
-            setTimeout(function () {
-                this.doQuery(search);
-            }.bind(this), 600);
+        if (search.trim()) {
+
+            // if (isDelayed) {
+            //     setTimeout(function () {
+            //         this.doQuery(search);
+            //     }.bind(this), 600);
+            // } else {
+            this.doQuery(search.trim());
+            // }
         } else {
-            this.doQuery(search);
+            this.setState({ searchBooks: [] })
         }
     }
 
     doQuery = (search) => {
         BooksAPI.search(search)
             .then(newBooks => {
+                console.log(newBooks)
                 if (newBooks && newBooks.length > 0) {
                     if (Array.isArray(newBooks)) {
                         // this.setState((prev) => ({
@@ -47,8 +53,10 @@ class SearchBook extends React.Component {
                         })
                         this.setState({ searchBooks: newBooks, hasError: false });
                     } else {
-                        this.setState({ hasError: true })
+                        this.setState({ searchBooks: [], hasError: true })
                     }
+                } else {
+                    this.setState({ searchBooks: [] })
                 }
             })
     }
