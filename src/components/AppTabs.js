@@ -18,13 +18,15 @@ class AppTabs extends Component {
                     indicatorColor="primary"
                     variant="fullWidth"
                 >
-                    {shelves.map(shelf => (
-                        <Tab
-                            key={shelf.id}
-                            label={shelf.label}
-                            to={"/" + shelf.label.replace(" ", "").toLowerCase()}
-                        />
-                    ))}
+                    {
+                        shelves.map(shelf => (
+                            <Tab
+                                key={shelf.id}
+                                label={shelf.label}
+                                to={"/" + shelf.label.replace(" ", "").toLowerCase()}
+                            />
+                        ))
+                    }
                 </Tabs>
             </AppBar>
         );

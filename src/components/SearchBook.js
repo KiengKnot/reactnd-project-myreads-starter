@@ -75,8 +75,8 @@ class SearchBook extends React.Component {
             <div>
                 <SearchAppBar
                     title="Search Books"
-                    onChange={(event) => this.handleOnSearch(event.currentTarget.value, true)}
-                    onSearch={(event) => this.handleOnSearch(event.currentTarget.value, false)}
+                    onChange={(event) => this.handleOnSearch(event.currentTarget ? event.currentTarget.value : '', true)}
+                    onSearch={(event) => this.handleOnSearch(event.currentTarget ? event.currentTarget.value : '', false)}
                     onClose={this.handleRedirect}
                 />
 

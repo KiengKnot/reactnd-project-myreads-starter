@@ -6,23 +6,24 @@ import PropTypes from 'prop-types';
 
 function FabSearch(props) {
     const { isShown, href } = props;
-    return (<Zoom
-        key="primary"
-        in={isShown}
-        unmountOnExit
-    >
-        <Fab
-            style={{
-                position: 'sticky',
-                bottom: 16 * 2,
-                right: 16 * 2
-            }}
-            color="primary"
-            href={href}
+    return (
+        <Zoom
+            key="primary"
+            in={isShown}
+            unmountOnExit
         >
-            <SearchIcon />
-        </Fab>
-    </Zoom>
+            <Fab
+                style={{
+                    position: 'sticky',
+                    bottom: 16 * 2,
+                    right: 16 * 2
+                }}
+                color="primary"
+                href={href}
+            >
+                <SearchIcon />
+            </Fab>
+        </Zoom>
     )
 }
 
