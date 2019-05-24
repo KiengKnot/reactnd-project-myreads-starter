@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BookCard from './BookCard';
 import PropTypes from 'prop-types';
+import BookCardList from './BookCardList';
+
 
 
 class ShelfTab extends Component {
@@ -21,12 +22,7 @@ class ShelfTab extends Component {
                     books.length > 0 &&
                     <div>
                         <h2>{shelf.label}</h2>
-                        {books.map(book => (
-                            <BookCard
-                                key={"book_" + book.id} book={book}
-                                onShelfChanged={this.handleShelfChanged}
-                            />
-                        ))}
+                        <BookCardList books={books} handleShelfChanged={this.handleShelfChanged} />
                     </div>
 
                 }

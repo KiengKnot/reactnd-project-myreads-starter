@@ -75,7 +75,7 @@ class BookCard extends Component {
         const { expanded, anchorEl } = this.state;
         const open = Boolean(anchorEl);
         return (
-            <Card raised={true} style={{ marginBottom: 5 }}>
+            <Card raised={true} style={{ marginBottom: 5, width: 300, margin: 10 }}>
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" src={book.imageLinks ? book.imageLinks.smallThumbnail : null}>
@@ -124,7 +124,7 @@ class BookCard extends Component {
                 <CardContent>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
-                    <Typography gutterBottom variant="headline" component="h2">
+                    <Typography gutterBottom variant="headline" component="h4">
                         {book.title}
                     </Typography>
                     <IconButton
