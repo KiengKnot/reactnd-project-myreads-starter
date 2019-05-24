@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import * as BooksAPI from './../BooksAPI';
-import BookCard from './BookCard';
 import SearchAppBar from './SearchAppBar';
+import BookCardList from './BookCardList';
 
 
 class SearchBook extends React.Component {
@@ -87,12 +87,7 @@ class SearchBook extends React.Component {
                         bookShelf[s.id].length > 0 &&
                         <div key={"div_" + s.id}>
                             <h2>{s.label}</h2>
-                            {bookShelf[s.id].map(book => (
-                                <BookCard
-                                    key={"search_" + book.id} book={book}
-                                    onShelfChanged={this.handleShelfChanged}
-                                />
-                            ))}
+                            <BookCardList books={bookShelf[s.id]} handleShelfChanged={this.handleShelfChanged} />
                         </div>
                     ))
                 }
@@ -100,12 +95,7 @@ class SearchBook extends React.Component {
                     bookShelf.none.length > 0 &&
                     <div>
                         <h2>Currently not on any shelf</h2>
-                        {bookShelf.none.map(book => (
-                            <BookCard
-                                key={"search_" + book.id} book={book}
-                                onShelfChanged={this.handleShelfChanged}
-                            />
-                        ))}
+                        <BookCardList books={bookShelf.none} handleShelfChanged={this.handleShelfChanged} />
                     </div>
                 }
 

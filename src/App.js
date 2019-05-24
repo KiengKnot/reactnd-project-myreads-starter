@@ -4,7 +4,7 @@ import SearchBook from './components/SearchBook';
 import FabSearch from './components/FabSearch';
 import TabBook from './components/TabBook';
 import AppTabs from './components/AppTabs';
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 const shelves = [
     { label: "Want To Read", id: "wantToRead" },
@@ -53,7 +53,7 @@ class BookApp extends React.Component {
     render() {
         const { currentTab, isLoaded, books } = this.state;
         return (
-            <div >
+            <Switch >
                 <Route exact path="/" render={() => (
                     <div>
                         < AppTabs
@@ -82,7 +82,7 @@ class BookApp extends React.Component {
                 )}
                 />
 
-            </div>
+            </Switch>
         );
     }
 }
